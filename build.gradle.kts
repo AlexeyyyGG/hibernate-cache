@@ -16,6 +16,8 @@ repositories {
 
 dependencies {
     implementation("org.hibernate.orm:hibernate-core:6.5.2.Final")
+    implementation("org.hibernate.orm:hibernate-jcache:6.5.2.Final")
+    implementation("org.ehcache:ehcache:3.10.8")
     implementation("org.postgresql:postgresql:42.7.8")
     implementation("org.slf4j:slf4j-simple:2.0.17")
     testImplementation(platform("org.junit:junit-bom:5.10.0"))

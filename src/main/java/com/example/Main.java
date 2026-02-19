@@ -15,15 +15,20 @@ public class Main {
         session.getTransaction().commit();
         session.close();
 
+        Session session1 = HibernateUtil.getSessionFactory().openSession();
+        session1.beginTransaction();
+
+        User user1 = session1.get(User.class, user.getId());
+        session1.getTransaction().commit();
+        session1.close();
+
         Session session2 = HibernateUtil.getSessionFactory().openSession();
         session2.beginTransaction();
 
-        User user1 = session2.get(User.class, user.getId());
         User user2 = session2.get(User.class, user.getId());
-
-        System.out.println(user1 == user2);
-
         session2.getTransaction().commit();
         session2.close();
+
+        System.out.println("User1 Id = " + user1.getId() + " User2 Id = " + user2.getId());
     }
 }
